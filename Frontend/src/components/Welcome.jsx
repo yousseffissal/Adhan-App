@@ -2,7 +2,7 @@ import assest1 from '../assets/assest1.jpg'
 import { Link } from 'react-router-dom'
 function Welcome() {
     return (
-        <div className="w-full h-full flex justify-center items-center py-16 px-4 bg-gradient-to-b from-green-50 to-white">
+        <div className="w-full overflow-y-auto h-full flex justify-center items-start py-16 px-4 bg-gradient-to-b from-green-50 to-white">
             <div className="max-w-4xl bg-white shadow-lg rounded-2xl p-10 flex flex-col items-center text-center">
 
                 {/* Title */}
