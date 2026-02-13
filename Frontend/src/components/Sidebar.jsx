@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const links = [
@@ -8,8 +9,23 @@ const links = [
 ]
 
 function Sidebar() {
+    const [isVisible, setIsVisible] = useState(false)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsVisible(window.innerWidth >= 768)
+        }
+
+        handleResize()
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    if (!isVisible) return null
+
     return (
-        <div className="hidden md:flex w-64 h-[calc(100vh-64px)] 
+        <div className="md:flex w-64 h-[calc(100vh-64px)] 
                         bg-gradient-to-b from-gray-100 to-gray-200 
                         border-r border-gray-300 
                         shadow-sm p-6 flex-col">
