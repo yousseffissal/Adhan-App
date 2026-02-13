@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import { Outlet } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
   }, [])
 
   return (
-    <div className="h-screen bg-gray-100 overflow-hidden">
+    <div className="min-h-screen bg-gray-100">
 
       {/* Navbar */}
       <div className="h-16 fixed top-0 left-0 w-full z-50">
@@ -34,10 +35,11 @@ function App() {
 
         {/* Content Area */}
         <div
-          className={`flex-1 h-[calc(100vh-64px)] transition-all duration-300`}
+          className={`flex-1 transition-all duration-300`}
           style={{ marginLeft: isSidebarVisible ? 256 : 0 }} // 64 * 4px = 256px
         >
           <Outlet />
+          <Footer />
         </div>
 
       </div>
