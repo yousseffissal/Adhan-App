@@ -13,7 +13,7 @@ function Sidebar() {
 
     useEffect(() => {
         const handleResize = () => {
-            setIsVisible(window.innerWidth >= 768)
+            setIsVisible(window.innerWidth >= 770)
         }
 
         handleResize()
@@ -22,13 +22,13 @@ function Sidebar() {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
-    if (!isVisible) return null
-
     return (
-        <div className="md:flex w-64 h-[calc(100vh-64px)] 
+        <div className="w-64 h-[calc(100vh-64px)] 
                         bg-gradient-to-b from-gray-100 to-gray-200 
                         border-r border-gray-300 
-                        shadow-sm p-6 flex-col">
+                        shadow-sm p-6 flex-col"
+            style={{ display: isVisible ? 'flex' : 'none' }}
+        >
 
             <h2 className="text-xl font-bold text-green-700 mb-10">
                 Navigation

@@ -1,8 +1,19 @@
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import { Outlet } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 function App() {
+
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => setIsSidebarVisible(window.innerWidth >= 770)
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <div className="h-screen bg-gray-100 overflow-hidden">
 
@@ -15,12 +26,17 @@ function App() {
       <div className="flex pt-16 h-full">
 
         {/* Sidebar */}
-        <div className="w-64 h-[calc(100vh-64px)] fixed left-0 top-16">
+        <div className="w-64 h-[calc(100vh-64px)] fixed left-0 top-16"
+          style={{ display: isSidebarVisible ? 'flex' : 'none' }}
+        >
           <Sidebar />
         </div>
 
         {/* Content Area */}
-        <div className="md:ml-64 flex-1 h-[calc(100vh-64px)]">
+        <div
+          className={`flex-1 h-[calc(100vh-64px)] transition-all duration-300`}
+          style={{ marginLeft: isSidebarVisible ? 256 : 0 }} // 64 * 4px = 256px
+        >
           <Outlet />
         </div>
 
