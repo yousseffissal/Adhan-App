@@ -71,7 +71,10 @@ function Navbar() {
                             <NavLink
                                 key={link.name}
                                 to={link.path}
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    scrollToTop();
+                                }}
                                 className={({ isActive }) =>
                                     isActive
                                         ? "bg-gray-600 text-white font-semibold py-2 px-6 rounded-[20px]"
