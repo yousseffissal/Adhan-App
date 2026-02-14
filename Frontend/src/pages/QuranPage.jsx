@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SurahList from "../components/SurahList";
 import SurahView from "../components/SurahView";
-import background from "../assets/background4.jpg";
+import background from "../assets/background5.jpg";
 import { QuranHook } from '../hooks/QuranHook.js'
 import { scrollToTop } from '../tools/ScrollTop'
 
