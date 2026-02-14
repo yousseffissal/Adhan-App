@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { links } from '../tools/Links'
 import { scrollToTop } from '../tools/ScrollTop'
+import { BiMenu } from "react-icons/bi";
+import { AiOutlineClose } from "react-icons/ai";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -55,8 +57,8 @@ function Navbar() {
                         className="md:hidden text-green-600 text-2xl"
                         onClick={() => setIsOpen(!isOpen)}
                     >
-                        {isOpen && "x"}
-                        {!isOpen && "☰"}
+                        {isOpen && <AiOutlineClose />}
+                        {!isOpen && <BiMenu />}
 
                     </button>
 
