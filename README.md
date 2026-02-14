@@ -1,4 +1,4 @@
-### 🕌 Muslim Planner
+# 🕌 Muslim Planner
 
 ---
 
