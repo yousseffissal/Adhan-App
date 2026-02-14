@@ -10,7 +10,7 @@ function SurahSelect({ onSelect }) {
   }, []);
 
   return (
-    <div className="overflow-y-auto flex flex-col justify-center p-3 w-full min-h-screen">
+    <div className="overflow-y-auto flex flex-col justify-center p-3 w-full max-h-full">
       <div className="space-y-3 w-full mx-auto">
         {surahs.map((surah, index) => (
           <div
