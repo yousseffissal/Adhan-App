@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { links } from '../tools/Links'
+import { scrollToTop } from '../tools/ScrollTop'
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -26,6 +27,7 @@ function Navbar() {
                             <NavLink
                                 key={link.name}
                                 to={link.path}
+                                onClick={scrollToTop}
                                 className={({ isActive }) =>
                                     isActive
                                         ? "text-green-600 font-semibold border-b-2 border-green-600"
