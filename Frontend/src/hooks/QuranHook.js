@@ -33,6 +33,7 @@ export const QuranHook = () => {
         loading,
         result,
         error,
+        setResult,
         fetchQuranSurah
     }
 
