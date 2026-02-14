@@ -1,12 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-
-const links = [
-    { name: 'Dashboard', path: '/' },
-    { name: 'Prayer Times', path: '/prayer-times' },
-    { name: 'Tasks', path: '/tasks' },
-    { name: 'Quran', path: '/quran' },
-]
+import { links } from '../tools/Links'
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -28,7 +22,7 @@ function Navbar() {
 
                     {/* Desktop Links */}
                     <div className="hidden md:flex space-x-8 text-gray-700 font-medium">
-                        {links.map((link) => (
+                        {links.slice(0, 4).map((link) => (
                             <NavLink
                                 key={link.name}
                                 to={link.path}

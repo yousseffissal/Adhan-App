@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+import { scrollToTop } from '../tools/ScrollTop'
+import { links } from '../tools/Links'
 
 function Footer() {
     return (
@@ -25,26 +27,13 @@ function Footer() {
                             Quick Links
                         </h3>
                         <ul className="space-y-2 text-gray-300">
-                            <li>
-                                <Link to="/" className="hover:text-green-400 transition">
-                                    Dashboard
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/prayer-times" className="hover:text-green-400 transition">
-                                    Prayer Times
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/tasks" className="hover:text-green-400 transition">
-                                    Tasks
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/quran" className="hover:text-green-400 transition">
-                                    Quran
-                                </Link>
-                            </li>
+                            {links.map((link) => (
+                                <li key={link.name} onClick={scrollToTop}>
+                                    <NavLink to={link.path}>
+                                        {link.name}
+                                    </NavLink>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 

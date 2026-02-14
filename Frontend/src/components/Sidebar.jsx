@@ -1,12 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-
-const links = [
-    { name: 'Prayer Times', icon: '🕌', path: '/prayer-times' },
-    { name: 'Quran', icon: '📖', path: '/quran' },
-    { name: 'My Schedule', icon: '📅', path: '/schedule' },
-    { name: 'Settings', icon: '⚙️', path: '/settings' },
-]
+import { links } from '../tools/Links'
 
 function Sidebar() {
     const [isVisible, setIsVisible] = useState(false)
