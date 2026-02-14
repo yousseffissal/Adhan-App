@@ -1,25 +1,30 @@
-import { createBrowserRouter, } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from "../App.jsx";
-import AdhanTime from "../components/AdhanTime.jsx";
-import Welcome from "../components/Welcome.jsx";
-import ErrorPage from "../components/ErrorPage.jsx";
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        errorElement: <ErrorPage />,
-        children: [
-            {
-                path: "/",
-                element: <Welcome />,
-            },
-            {
-                path: "/prayer-times",
-                element: <AdhanTime />,
-            },
-        ]
-    },
+import AdhanTime from "../pages/AdhanTime.jsx";
+import Welcome from "../pages/Welcome.jsx";
+import ErrorPage from "../pages/ErrorPage.jsx";
+import QuranPage from "../pages/QuranPage.jsx";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Welcome />,
+      },
+      {
+        path: "prayer-times",
+        element: <AdhanTime />,
+      },
+      {
+        path: "quran",
+        element: <QuranPage />,
+      },
+    ],
+  },
 ]);
 
 export default router;
