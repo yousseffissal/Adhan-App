@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import background from '../assets/background2.jpg'
 function Welcome() {
     return (
-        <div className="overflow-y-auto flex justify-center bg-no-repeat bg-center bg-cover"
+        <div className="min-h-screen overflow-y-auto flex justify-center bg-no-repeat bg-center bg-cover"
             style={{ backgroundImage: `url(${background})` }}>
             <div className="w-full overflow-y-auto flex justify-center items-start p-4">
                 <div className="max-w-4xl bg-white shadow-lg rounded-2xl p-10 flex flex-col items-center text-center">
