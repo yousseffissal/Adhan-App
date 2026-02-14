@@ -37,7 +37,7 @@ function QuranPage() {
     >
       <div className="w-full mx-auto mb-2">
 
-        <div className="flex justify-between mt-4 gap-2">
+        <div className="flex justify-between gap-2">
           {selectedSurah && (
             <button
               onClick={() => {
@@ -111,7 +111,7 @@ function QuranPage() {
       )}
 
       {selectedSurah && (
-        <div className="w-full mx-auto bg-white p-6 rounded-[36px] shadow">
+        <div className="w-full mx-auto bg-white md:p-6 p-4 md:rounded-[36px] rounded-[28px] shadow">
           {loading && <p className="text-center text-green-900">Loading...</p>}
           {error && <p className="text-center text-red-600">{error}</p>}
           {result && (<SurahView surahView={result} />)}
