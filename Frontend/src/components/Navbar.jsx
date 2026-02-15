@@ -13,19 +13,18 @@ function Navbar() {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex justify-between items-center h-16">
 
-                    <div className='flex justify-center items-center gap-2'>
-                        <img src="/Icon.png" alt="Muslim Planner Logo" className="h-7 w-7" />
-                        {/* Logo */}
-                        <span className="text-2xl font-bold text-green-600">
-                            <Link
-                                to={'/'}
-                                className="hover:text-green-600 transition"
-                                onClick={scrollToTop}
-                            >
+                    <Link
+                        to={'/'}
+                        onClick={scrollToTop}
+                    >
+                        <div className='flex justify-center items-center gap-2'>
+                            <img src="/Icon.png" alt="Muslim Planner Logo" className="h-7 w-7" />
+                            {/* Logo */}
+                            <span className="text-2xl font-bold text-green-600">
                                 Muslim Planner
-                            </Link>
-                        </span>
-                    </div>
+                            </span>
+                        </div>
+                    </Link>
 
                     {/* Desktop Links */}
                     <div className="hidden navbar:flex space-x-8 text-gray-700 font-medium">
