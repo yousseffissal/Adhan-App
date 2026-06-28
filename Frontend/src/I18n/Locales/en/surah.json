@@ -24,6 +24,26 @@
         "continueReading": "📍 Continue Reading (Ayah {{ayah}} Surah {{surah}})",
         "loading": "Loading...",
         "backToTop": "Back to Top",
-        "help": "Help"
+        "help": "Help",
+        "cards": {
+            "continueReading": {
+                "title": "Continue Reading",
+                "subtitle": "Surah {{surah}}, Ayah {{ayah}}"
+            },
+            "browseAll": {
+                "title": "Browse All Surahs",
+                "subtitle": "Explore all 114 Surahs"
+            },
+            "features": {
+                "totalSurahs": "114 Surahs",
+                "totalSurahsDesc": "Complete Quran",
+                "audioRecitation": "Audio Recitation",
+                "audioRecitationDesc": "Multiple Reciters",
+                "autoSave": "Auto-Save",
+                "autoSaveDesc": "Track Your Progress",
+                "darkMode": "Dark Mode",
+                "darkModeDesc": "Comfortable Reading"
+            }
+        }
     }
 }

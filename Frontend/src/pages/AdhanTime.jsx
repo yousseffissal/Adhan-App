@@ -37,7 +37,7 @@ function AdhanTime() {
   return (
     <div
       dir={i18n.language === "ar" ? "rtl" : "ltr"}
-      className="relative min-h-[calc(100vh-64px)] overflow-y-auto flex justify-center p-4 bg-no-repeat bg-center bg-cover overflow-hidden"
+      className="relative min-h-[calc(100vh-64px)] overflow-y-auto p-4 bg-no-repeat bg-center bg-cover overflow-hidden"
       style={{ backgroundImage: `url(${background})` }}>
 
       {/* Overlay */}
@@ -48,113 +48,189 @@ function AdhanTime() {
         }}
       />
 
-      <div className="flex items-start justify-center z-30">
-        <div className="w-full max-w-xl rounded-2xl p-8 md:shadow-2xl"
-          style={{ background: theme.card }}>
+      <div className="relative z-30 max-w-6xl mx-auto">
 
-          <h1 className="text-3xl font-bold text-center mb-2"
-            style={{ color: theme.AdhanRed }}>
-            {t("adhan.title")}
-          </h1>
-
-          <p className="text-center mb-6" style={{ color: theme.cardtext }}>
+        {/* Header Section */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-3 mb-3">
+            <h1
+              className="text-3xl md:text-4xl font-bold"
+              style={{ color: theme.AdhanRed }}
+            >
+              {t("adhan.title")}
+            </h1>
+          </div>
+          <p className="text-base md:text-lg opacity-80" style={{ color: theme.cardtext }}>
             {t("adhan.subtitle")}
           </p>
+        </div>
 
-          {/* City Input */}
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            placeholder={t("adhan.cityPlaceholder")}
-            className="w-full mb-2 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-400 transition"
-            style={{
-              background: mode !== "light" ? "transparent" : "#eeeeee",
-              color: mode !== "light" ? "#ffffff" : "#000000",
-              border: `1px solid ${theme.AdhanRed}`,
-            }}
-            disabled={loading}
-          />
+        {/* Main Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-          {/* Date Input */}
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            className="w-full rounded-xl px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-red-400 transition"
-            style={{
-              background: mode !== "light" ? "transparent" : "#eeeeee",
-              color: mode !== "light" ? "#ffffff" : "#000000",
-              border: `1px solid ${theme.AdhanRed}`
-            }}
-            disabled={loading}
-          />
-
-          {/* Small note */}
-          <p
-            className="text-xs mb-4"
-            style={{ color: theme.cardtext }}
-            dangerouslySetInnerHTML={{
-              __html: t("adhan.note", {
-                themeColor: theme.AdhanRed
-              })
-            }}
-          />
-
-          {/* Button */}
-          <button
-            onClick={fetchAdhan}
-            disabled={loading}
-            className={`w-full rounded-xl py-3 font-semibold text-white transition-all duration-200 mb-6
-              ${loading ? 'cursor-not-allowed' : 'active:scale-95'}`}
-            style={{ background: loading ? "#9ca3af" : theme.AdhanRed }}
+          {/* Search Panel - Spans 1 column */}
+          <div
+            className="lg:col-span-1 rounded-3xl p-6 shadow-xl backdrop-blur-sm"
+            style={{ background: theme.card }}
           >
-            {loading ? t("adhan.loading") : t("adhan.getButton")}
-          </button>
+            <h2
+              className="text-xl font-bold mb-4 text-center"
+              style={{ color: theme.AdhanRed }}
+            >
+              🔍 Search City
+            </h2>
 
-          {/* Results */}
-          <div>
+            {/* City Input */}
+            <input
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              placeholder={t("adhan.cityPlaceholder")}
+              className="w-full mb-3 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-400 transition"
+              style={{
+                background: mode !== "light" ? "transparent" : "#eeeeee",
+                color: mode !== "light" ? "#ffffff" : "#000000",
+                border: `1px solid ${theme.AdhanRed}`,
+              }}
+              disabled={loading}
+            />
+
+            {/* Date Input */}
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="w-full rounded-xl px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-red-400 transition"
+              style={{
+                background: mode !== "light" ? "transparent" : "#eeeeee",
+                color: mode !== "light" ? "#ffffff" : "#000000",
+                border: `1px solid ${theme.AdhanRed}`
+              }}
+              disabled={loading}
+            />
+
+            {/* Button */}
+            <button
+              onClick={fetchAdhan}
+              disabled={loading}
+              className={`w-full rounded-xl py-3 font-semibold text-white transition-all duration-200
+                ${loading ? 'cursor-not-allowed' : 'active:scale-95 hover:scale-[1.02]'}`}
+              style={{ background: loading ? "#9ca3af" : theme.AdhanRed }}
+            >
+              {loading ? t("adhan.loading") : t("adhan.getButton")}
+            </button>
+
+            {/* Info Note */}
+            <div className="mt-4 p-3 rounded-xl text-xs"
+              style={{
+                background: mode !== "light" ? "rgba(255,255,255,0.05)" : "#f9fafb",
+                color: theme.cardtext
+              }}
+              dangerouslySetInnerHTML={{
+                __html: t("adhan.note", {
+                  themeColor: theme.AdhanRed
+                })
+              }}
+            />
+          </div>
+
+          {/* Prayer Times Panel - Spans 2 columns */}
+          <div className="lg:col-span-2">
             {loading && (
-              <div className="flex items-center justify-center py-8">
-                <div className="h-8 w-8 animate-spin rounded-full"
-                  style={{ border: `4px solid ${theme.AdhanRed}`, borderTopColor: "transparent" }}>
+              <div
+                className="h-full min-h-[300px] rounded-3xl flex flex-col items-center justify-center shadow-xl backdrop-blur-sm"
+                style={{ background: theme.card }}
+              >
+                <div className="h-16 w-16 animate-spin rounded-full mb-4"
+                  style={{ border: `6px solid ${theme.AdhanRed}`, borderTopColor: "transparent" }}>
                 </div>
+                <p style={{ color: theme.cardtext }}>{t("adhan.loading")}</p>
               </div>
             )}
 
-            {!loading && (
+            {!loading && !result?.data && (
+              <div
+                className="h-full min-h-[300px] rounded-3xl flex flex-col items-center justify-center shadow-xl backdrop-blur-sm p-8 text-center"
+                style={{ background: theme.card }}
+              >
+                <div className="text-6xl mb-4">🌅</div>
+                <h3
+                  className="text-xl font-bold mb-2"
+                  style={{ color: theme.AdhanRed }}
+                >
+                  Search for a City
+                </h3>
+                <p style={{ color: theme.cardtext }}>
+                  Enter a city name and date to get prayer times
+                </p>
+              </div>
+            )}
+
+            {!loading && error && (
+              <div
+                className="rounded-3xl p-6 shadow-xl backdrop-blur-sm text-center"
+                style={{
+                  background: mode !== "light" ? "transparent" : "#fef2f2",
+                  color: theme.AdhanRed,
+                  border: `2px solid ${theme.AdhanRed}`
+                }}
+              >
+                <div className="text-4xl mb-3">❌</div>
+                <p className="font-semibold">{error}</p>
+              </div>
+            )}
+
+            { result?.data && (
               <>
-                {error && (
-                  <p className="rounded-lg p-3 mb-4 text-center"
-                    style={{
-                      background: mode !== "light" ? "transparent" : "#fef2f2",
-                      color: theme.AdhanRed,
-                      border: `1px solid ${theme.AdhanRed}`
-                    }}>
-                    {error}
-                  </p>
-                )}
+                <div
+                  className="rounded-2xl p-4 mb-4 text-center shadow-lg backdrop-blur-sm"
+                  style={{
+                    background: mode !== "light" ? "transparent" : "#f0fdf4",
+                    color: theme.navbarlogo,
+                    border: `2px solid ${theme.navbarlogo}`
+                  }}
+                >fix
+                  {successMsg}
+                </div>
 
-                {successMsg && (
-                  <p className="rounded-lg p-3 mb-4 text-center"
-                    style={{
-                      background: mode !== "light" ? "transparent" : "#f0fdf4",
-                      color: theme.navbarlogo,
-                      border: `1px solid ${theme.navbarlogo}`
-                    }}>
-                    {successMsg}
-                  </p>
-                )}
-
-                {result?.data && (
-                  <div className="grid grid-cols-2 gap-4">
-                    <PrayerCard name={t("adhan.prayers.fajr")} time={result.data.Fajr} />
-                    <PrayerCard name={t("adhan.prayers.dhuhr")} time={result.data.Dhuhr} />
-                    <PrayerCard name={t("adhan.prayers.asr")} time={result.data.Asr} />
-                    <PrayerCard name={t("adhan.prayers.maghrib")} time={result.data.Maghrib} />
-                    <PrayerCard name={t("adhan.prayers.isha")} time={result.data.Isha} />
-                  </div>
-                )}
+                {/* Prayer Times Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <PrayerCard
+                    name={t("adhan.prayers.fajr")}
+                    time={result.data.Fajr}
+                    icon="🌅"
+                    theme={theme}
+                    mode={mode}
+                  />
+                  <PrayerCard
+                    name={t("adhan.prayers.dhuhr")}
+                    time={result.data.Dhuhr}
+                    icon="☀️"
+                    theme={theme}
+                    mode={mode}
+                  />
+                  <PrayerCard
+                    name={t("adhan.prayers.asr")}
+                    time={result.data.Asr}
+                    icon="🌤️"
+                    theme={theme}
+                    mode={mode}
+                  />
+                  <PrayerCard
+                    name={t("adhan.prayers.maghrib")}
+                    time={result.data.Maghrib}
+                    icon="🌅"
+                    theme={theme}
+                    mode={mode}
+                  />
+                  <PrayerCard
+                    name={t("adhan.prayers.isha")}
+                    time={result.data.Isha}
+                    icon="🌙"
+                    theme={theme}
+                    mode={mode}
+                  />
+                </div>
               </>
             )}
           </div>
@@ -164,16 +240,18 @@ function AdhanTime() {
   );
 }
 
-function PrayerCard({ name, time }) {
-  const { theme, mode } = useTheme();
+function PrayerCard({ name, time, icon, theme, mode }) {
   return (
-    <div className="transition rounded-xl p-4 shadow-sm border text-center"
+    <div
+      className="rounded-2xl p-5 shadow-lg text-center transition-all duration-300 hover:scale-[1.05] hover:shadow-xl cursor-default backdrop-blur-sm"
       style={{
-        background: mode !== "light" ? "transparent" : "#f9fafb",
+        background: mode !== "light" ? "rgba(255,255,255,0.05)" : "#f9fafb",
         border: `2px solid ${theme.AdhanRed}`
-      }}>
-      <p className="text-sm" style={{ color: theme.cardtext }}>{name}</p>
-      <p className="text-lg font-bold mt-1" style={{ color: theme.AdhanRed }}>{time}</p>
+      }}
+    >
+      <div className="text-3xl mb-2">{icon}</div>
+      <p className="text-sm font-medium mb-1" style={{ color: theme.cardtext }}>{name}</p>
+      <p className="text-xl font-bold" style={{ color: theme.AdhanRed }}>{time}</p>
     </div>
   );
 }

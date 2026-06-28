@@ -21,6 +21,17 @@
         },
         "messages": {
             "success": "Heures de prière récupérées avec succès pour : {{city}} le : {{date}}"
-        }
+        },
+        "searchPanel": {
+            "title": "🔍 Rechercher une ville",
+            "placeholder": "Nom de la ville...",
+            "button": "Obtenir les horaires d'Adhan",
+            "loading": "Chargement..."
+        },
+        "emptyState": {
+            "title": "Rechercher une ville",
+            "description": "Entrez le nom d'une ville et la date pour obtenir les horaires de prière"
+        },
+        "successMessage": "✅ Horaires de prière récupérés avec succès"
     }
 }

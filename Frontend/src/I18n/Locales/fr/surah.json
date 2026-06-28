@@ -8,10 +8,10 @@
         "progress": {
             "savedTitle": "Progression enregistrée",
             "savedText": "Votre progression a été enregistrée avec succès !",
-            "errorText": "Échec de l'enregistrement de la progression",
+            "errorText": "Échec de l’enregistrement de la progression",
             "confirm": "OK"
         },
-        "bismillahAlt": "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux"
+        "bismillahAlt": "Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux"
     },
     "quranPage": {
         "selectSurah": "Sélectionner une sourate",
@@ -19,11 +19,31 @@
         "welcome": {
             "title": "Bienvenue dans la section du Saint Coran",
             "description": "Sélectionnez une sourate pour explorer ses versets et réfléchir à leurs significations dans une expérience de lecture paisible.",
-            "apiNote": "Cette application utilise <a href='https://alquran.cloud/api' target='_blank' rel='noopener noreferrer' class='underline underline-offset-2 font-medium' style='color:{{themeColor}};'> l’API AlQuran.cloud </a> pour récupérer les données du Coran."
+            "apiNote": "Cette application utilise <a href=’https://alquran.cloud/api’ target=’_blank’ rel=’noopener noreferrer’ class=’underline underline-offset-2 font-medium’ style=’color:{{themeColor}};’> l’API AlQuran.cloud </a> pour récupérer les données du Coran."
         },
         "continueReading": "📍 Continuer la lecture (Verset {{ayah}} Sourate {{surah}})",
         "loading": "Chargement...",
         "backToTop": "Retour en haut",
-        "help": "Aide"
+        "help": "Aide",
+        "cards": {
+            "continueReading": {
+                "title": "Continuer la lecture",
+                "subtitle": "Sourate {{surah}}, Verset {{ayah}}"
+            },
+            "browseAll": {
+                "title": "Parcourir toutes les sourates",
+                "subtitle": "Explorer les 114 sourates"
+            },
+            "features": {
+                "totalSurahs": "114 Sourates",
+                "totalSurahsDesc": "Coran complet",
+                "audioRecitation": "Récitation audio",
+                "audioRecitationDesc": "Plusieurs récitants",
+                "autoSave": "Sauvegarde auto",
+                "autoSaveDesc": "Suivez votre progression",
+                "darkMode": "Mode sombre",
+                "darkModeDesc": "Lecture confortable"
+            }
+        }
     }
 }

@@ -1,11 +1,44 @@
 {
   "welcome": {
-    "title": "مرحبًا بك في Muslim Planner",
-    "subtitle": "تطبيقك اليومي الذي يساعدك على تنظيم عبادتك، الأذكار، قراءة القرآن، وإدارة مهامك اليومية بسهولة وراحة.",
-    "buttons": {
-      "startDay": "ابدأ يومك",
-      "exploreFeatures": "استكشاف المزايا"
-    },
-    "imageAlt": "Muslim Planner"
+    "title": "مرحباً بك في Muslim Planner",
+    "subtitle": "رفيقك اليومي لتنظيم عبادتك وأذكارك وقراءة القرآن وإدارة مهامك بسهولة."
+  },
+  "greeting": {
+    "morning": "صباح الخير ☀️",
+    "afternoon": "مساء الخير 🌤️",
+    "evening": "مساء النور 🌙"
+  },
+  "date": {
+    "today": "اليوم"
+  },
+  "stats": {
+    "quranProgress": "تقدم القرآن",
+    "surahs": "سورة",
+    "tasksCompleted": "المهام المكتملة",
+    "thisWeek": "هذا الأسبوع",
+    "currentStreak": "الأيام المتتالية",
+    "days": "أيام",
+    "keepItUp": "استمر!",
+    "totalTasbeeh": "إجمالي التسبيح",
+    "repetitions": "مرة",
+    "live": "مباشر"
+  },
+  "quickActions": {
+    "title": "إجراءات سريعة",
+    "prayerTimes": "أوقات الصلاة",
+    "quran": "القرآن",
+    "tasks": "المهام",
+    "tasbeeh": "التسبيح"
+  },
+  "dailyReminder": {
+    "title": "تذكير يومي",
+    "text": "قال النبي ﷺ: 'أحب الأعمال إلى الله أدومها وإن قلّ'. ابدأ يومك بنية صادقة واستمرارية."
+  },
+  "dailyActions": {
+    "checkPrayers": "أوقات الصلاة",
+    "viewTasks": "عرض المهام"
+  },
+  "footer": {
+    "encouragement": "جعل الله يومك مباركاً ومثمراً 🤍"
   }
 }

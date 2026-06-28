@@ -152,77 +152,189 @@ function QuranPage() {
         </div>
 
         {!showList && !selectedSurah && (
-          <div className="w-full flex mt-6 justify-center px-4">
+          <div className="w-full mt-8 px-4">
+            {/* Main Welcome Grid */}
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 
-            <div
-              className="max-w-2xl w-full rounded-2xl p-8 md:p-10 text-center shadow-xl transition-all duration-300 hover:shadow-2xl"
-              style={{ background: theme.card }}
-            >
+              {/* Welcome Card - Spans 2 columns on large screens */}
+              <div
+                className="lg:col-span-2 rounded-3xl p-6 md:p-8 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] backdrop-blur-sm"
+                style={{ background: theme.card }}
+              >
+                <div className="flex flex-col h-full justify-between">
+                  <div>
+                    {/* Header with Icon */}
+                    <div className="flex items-center gap-4 mb-6">
+                      <div
+                        className="w-16 h-16 flex items-center justify-center rounded-2xl text-3xl shadow-lg"
+                        style={{ background: theme.navbarlogo }}
+                      >
+                        📖
+                      </div>
+                      <h2
+                        className="text-xl md:text-2xl font-bold"
+                        style={{ color: theme.navbarlogo }}
+                      >
+                        {t('quranPage.welcome.title')}
+                      </h2>
+                    </div>
 
-              {/* Icon */}
-              <div className="flex justify-center mb-5">
-                <div
-                  className="w-14 h-14 flex items-center justify-center rounded-full text-xl shadow"
-                  style={{ background: theme.navbarlogo }}
-                >
-                  📖
+                    {/* Description */}
+                    <p
+                      className="text-base md:text-lg leading-relaxed mb-4"
+                      style={{ color: theme.cardtext }}
+                    >
+                      {t('quranPage.welcome.description')}
+                    </p>
+                  </div>
+
+                  {/* API Note */}
+                  <p
+                    className="text-sm opacity-70 mt-4 pt-4 border-t"
+                    style={{ color: theme.cardtext, borderColor: theme.cardtext }}
+                    dangerouslySetInnerHTML={{
+                      __html: t('quranPage.welcome.apiNote', {
+                        themeColor: theme.navbarlogo,
+                        direction: dir(i18n.language)
+                      })
+                    }}
+                  />
                 </div>
               </div>
 
-              {/* Title */}
-              <h2
-                className="text-2xl md:text-3xl font-bold mb-3"
-                style={{ color: theme.navbarlogo }}
-              >
-                {t('quranPage.welcome.title')}
-              </h2>
+              {/* Quick Stats / Features Card */}
+              <div className="grid grid-rows-2 gap-4">
+                {/* Continue Reading Card */}
+                {savedProgress && (
+                  <div
+                    className="rounded-3xl p-2 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] cursor-pointer backdrop-blur-sm flex flex-col justify-center items-center text-center"
+                    style={{ background: theme.navbaractivelink }}
+                    onClick={() => {
+                      handleSelect(savedProgress.surah);
+                      setTimeout(() => {
+                        const el = document.getElementById(`ayah-${savedProgress.ayah - 1}`);
+                        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+                      }, 500);
+                    }}
+                  >
+                    <h3 className="text-white font-bold text-lg mb-2">Continue Reading</h3>
+                    <p className="text-white/90 text-sm">
+                      Surah {savedProgress.surah}, Ayah {savedProgress.ayah}
+                    </p>
+                  </div>
+                )}
 
-              {/* Description */}
-              <p
-                className="text-base md:text-lg leading-relaxed opacity-90 mb-4"
-                style={{ color: theme.cardtext }}
-              >
-                {t('quranPage.welcome.description')}
-              </p>
-
-              {/* API note */}
-              <p
-                className="text-sm opacity-70"
-                style={{ color: theme.cardtext }}
-                dangerouslySetInnerHTML={{
-                  __html: t('quranPage.welcome.apiNote', {
-                    themeColor: theme.navbarlogo,
-                    direction: dir(i18n.language)
-                  })
-                }}
-              />
-
-              {/* Divider */}
-              <div
-                className="my-6 h-px w-full opacity-20"
-                style={{ background: theme.cardtext }}
-              ></div>
-
-              {/* Button */}
-              {savedProgress && (
-                <button
-                  onClick={() => {
-                    handleSelect(savedProgress.surah);
-
-                    setTimeout(() => {
-                      const el = document.getElementById(`ayah-${savedProgress.ayah - 1}`);
-                      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-                    }, 500);
-                  }}
-                  className="px-6 py-3 rounded-lg font-medium shadow-md md:text-base text-xs transition-all duration-300 hover:scale-[1.03] active:scale-95"
-                  style={{ background: theme.navbaractivelink, color: "#fff" }}
+                {/* Browse All Card */}
+                <div
+                  className={`rounded-3xl p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] cursor-pointer backdrop-blur-sm flex flex-col justify-center items-center text-center ${!savedProgress ? 'row-span-2' : ''}`}
+                  style={{ background: theme.card }}
+                  onClick={() => setShowList(true)}
                 >
-                  {t('quranPage.continueReading', { ayah: savedProgress.ayah, surah: savedProgress.surah })}
-                </button>
-              )}
+                  <div
+                    className="text-4xl mb-3"
+                    style={{ color: theme.navbarlogo }}
+                  >
+                    📜
+                  </div>
+                  <h3
+                    className="font-bold text-lg mb-2"
+                    style={{ color: theme.navbarlogo }}
+                  >
+                    Browse All Surahs
+                  </h3>
+                  <p
+                    className="text-sm opacity-80"
+                    style={{ color: theme.cardtext }}
+                  >
+                    Explore all 114 Surahs
+                  </p>
+                </div>
+              </div>
+
+              {/* Decorative Info Cards Row */}
+              <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
+                {/* Card 1 */}
+                <div
+                  className="rounded-2xl p-4 md:p-5 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.03] text-center backdrop-blur-sm"
+                  style={{ background: theme.card }}
+                >
+                  <div className="text-2xl md:text-3xl mb-2">✨</div>
+                  <h4
+                    className="font-bold text-sm md:text-base"
+                    style={{ color: theme.navbarlogo }}
+                  >
+                    114 Surahs
+                  </h4>
+                  <p
+                    className="text-xs opacity-70 mt-1"
+                    style={{ color: theme.cardtext }}
+                  >
+                    Complete Quran
+                  </p>
+                </div>
+
+                {/* Card 2 */}
+                <div
+                  className="rounded-2xl p-4 md:p-5 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.03] text-center backdrop-blur-sm"
+                  style={{ background: theme.card }}
+                >
+                  <div className="text-2xl md:text-3xl mb-2">🎧</div>
+                  <h4
+                    className="font-bold text-sm md:text-base"
+                    style={{ color: theme.navbarlogo }}
+                  >
+                    Audio Recitation
+                  </h4>
+                  <p
+                    className="text-xs opacity-70 mt-1"
+                    style={{ color: theme.cardtext }}
+                  >
+                    Multiple Reciters
+                  </p>
+                </div>
+
+                {/* Card 3 */}
+                <div
+                  className="rounded-2xl p-4 md:p-5 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.03] text-center backdrop-blur-sm"
+                  style={{ background: theme.card }}
+                >
+                  <div className="text-2xl md:text-3xl mb-2">💾</div>
+                  <h4
+                    className="font-bold text-sm md:text-base"
+                    style={{ color: theme.navbarlogo }}
+                  >
+                    Auto-Save
+                  </h4>
+                  <p
+                    className="text-xs opacity-70 mt-1"
+                    style={{ color: theme.cardtext }}
+                  >
+                    Track Your Progress
+                  </p>
+                </div>
+
+                {/* Card 4 */}
+                <div
+                  className="rounded-2xl p-4 md:p-5 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.03] text-center backdrop-blur-sm"
+                  style={{ background: theme.card }}
+                >
+                  <div className="text-2xl md:text-3xl mb-2">🌙</div>
+                  <h4
+                    className="font-bold text-sm md:text-base"
+                    style={{ color: theme.navbarlogo }}
+                  >
+                    Dark Mode
+                  </h4>
+                  <p
+                    className="text-xs opacity-70 mt-1"
+                    style={{ color: theme.cardtext }}
+                  >
+                    Comfortable Reading
+                  </p>
+                </div>
+              </div>
 
             </div>
-
           </div>
         )}
 

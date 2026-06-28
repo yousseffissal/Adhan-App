@@ -21,6 +21,17 @@
         },
         "messages": {
             "success": "Prayer times retrieved successfully for : {{city}} on : {{date}}"
-        }
+        },
+        "searchPanel": {
+            "title": "🔍 Search City",
+            "placeholder": "City name...",
+            "button": "Get Adhan Time",
+            "loading": "Loading..."
+        },
+        "emptyState": {
+            "title": "Search for a City",
+            "description": "Enter a city name and date to get prayer times"
+        },
+        "successMessage": "✅ Prayer times retrieved successfully"
     }
 }

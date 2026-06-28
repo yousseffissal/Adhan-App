@@ -22,8 +22,28 @@
             "apiNote": "يستخدم هذا التطبيق <a href='https://alquran.cloud/api' target='_blank' rel='noopener noreferrer' class='underline underline-offset-2 font-medium' style='color:{{themeColor}};'> واجهة AlQuran.cloud API </a> لجلب بيانات القرآن الكريم."
         },
         "continueReading": "📍 متابعة القراءة (الآية {{ayah}} من السورة {{surah}})",
-            "loading": "جاري التحميل...",
-            "backToTop": "العودة للأعلى",
-            "help": "مساعدة"
+        "loading": "جاري التحميل...",
+        "backToTop": "العودة للأعلى",
+        "help": "مساعدة",
+        "cards": {
+            "continueReading": {
+                "title": "متابعة القراءة",
+                "subtitle": "سورة {{surah}}، الآية {{ayah}}"
+            },
+            "browseAll": {
+                "title": "تصفح جميع السور",
+                "subtitle": "استكشف جميع السور 114"
+            },
+            "features": {
+                "totalSurahs": "114 سورة",
+                "totalSurahsDesc": "القرآن الكريم كاملاً",
+                "audioRecitation": "تلاوة صوتية",
+                "audioRecitationDesc": "قراء متعددون",
+                "autoSave": "حفظ تلقائي",
+                "autoSaveDesc": "تتبع تقدمك",
+                "darkMode": "الوضع الداكن",
+                "darkModeDesc": "قراءة مريحة"
+            }
         }
     }
+}

@@ -1,11 +1,44 @@
 {
   "welcome": {
     "title": "Bienvenue sur Muslim Planner",
-    "subtitle": "Votre application quotidienne qui vous aide à organiser votre adoration, vos rappels (adhkar), la lecture du Coran et gérer vos tâches quotidiennes avec aisance et confort.",
-    "buttons": {
-      "startDay": "Commencez votre journée",
-      "exploreFeatures": "Explorer les fonctionnalités"
-    },
-    "imageAlt": "Muslim Planner"
+    "subtitle": "Votre compagnon quotidien pour organiser l'adoration, les adhkar, la lecture du Coran et gérer vos tâches avec facilité."
+  },
+  "greeting": {
+    "morning": "Bonjour ☀️",
+    "afternoon": "Bon après-midi 🌤️",
+    "evening": "Bonsoir 🌙"
+  },
+  "date": {
+    "today": "Aujourd'hui"
+  },
+  "stats": {
+    "quranProgress": "Progression Coran",
+    "surahs": "sourates",
+    "tasksCompleted": "Tâches terminées",
+    "thisWeek": "cette semaine",
+    "currentStreak": "Série actuelle",
+    "days": "jours",
+    "keepItUp": "continuez comme ça !",
+    "totalTasbeeh": "Tasbeeh total",
+    "repetitions": "répétitions",
+    "live": "EN DIRECT"
+  },
+  "quickActions": {
+    "title": "Actions rapides",
+    "prayerTimes": "Heures de prière",
+    "quran": "Coran",
+    "tasks": "Tâches",
+    "tasbeeh": "Tasbeeh"
+  },
+  "dailyReminder": {
+    "title": "Rappel du jour",
+    "text": "Le Prophète ﷺ a dit : 'Les actes les plus aimés par Allah sont ceux qui sont les plus constants, même s'ils sont petits.' Commencez votre journée avec intention et constance."
+  },
+  "dailyActions": {
+    "checkPrayers": "Voir les heures de prière",
+    "viewTasks": "Voir les tâches"
+  },
+  "footer": {
+    "encouragement": "Qu'Allah rende votre journée bénie et productive 🤍"
   }
 }
